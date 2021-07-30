@@ -1,17 +1,8 @@
-class CatalogModal{
-  static final items=[
-   Item(
-     id: 1,
-     name: 'iphone 12 Pro',
-     desc: 'Apple iphone 12th generation',
-     price:999,
-     color:'#33505a',
-     image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqG3tGowZTiforo7Cptg_DLMNz0xCxLGPTTC0QQ5Ah-QvHyqWoZfGJTckuLs8e5J0vfkp0nco&usqp=CAc',
-   )
-  ];
+class CatalogModal {
+  static  List<Item> items;
 }
 
-class Item{
+class Item {
   final int id;
   final String name;
   final String desc;
@@ -21,4 +12,24 @@ class Item{
 
   Item({this.id, this.name, this.desc, this.price, this.color, this.image});
 
+  factory Item.fromMap(Map<String, dynamic> map) {
+    if (map == null) return null;
+    return Item(
+      id: map['id'],
+      name: map['name'],
+      desc: map['desc'],
+      price: map['price'],
+      color: map['color'],
+      image: map['image'],
+    );
+  }
+
+  toMap() => {
+        'id': id,
+        'name': name,
+        'desc': desc,
+        'price': price,
+        'color': color,
+        'image': image,
+      };
 }
