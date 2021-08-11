@@ -1,4 +1,4 @@
-class CatalogModal {
+class CatalogModel {
   static  List<Item> items;
 }
 
